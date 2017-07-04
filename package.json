@@ -1,0 +1,36 @@
+{
+  "name": "musicSpider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "godghdai",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.4.1",
+    "big-integer": "^1.6.22",
+    "cheerio": "^1.0.0-rc.1",
+    "co": "^4.6.0",
+    "concat-stream": "^1.6.0",
+    "debug": "^2.6.8",
+    "koa": "^2.2.0",
+    "koa-body": "^2.3.0",
+    "koa-convert": "^1.2.0",
+    "koa-cors": "0.0.16",
+    "koa-router": "^7.2.0",
+    "koa-static": "^3.0.0",
+    "later": "^1.2.0",
+    "single-line-log": "^1.1.2",
+    "socket.io": "^2.0.2",
+    "superagent": "^3.5.2",
+    "underscore": "^1.8.3",
+    "urlencode": "^1.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0"
+  }
+}
