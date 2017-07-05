@@ -115,7 +115,7 @@
         "progress": 0,
         "status": "等待中",
         "_index": 6,
-        "playurl": "http://dl.stream.qqmusic.qq.com/C400000hLIXW3Km60I.m4a?vkey=1991E1EFB5B25B1A2B288115811F5F8272CEEE735692586E43603202FAAA3E6A6EA2E35736A8F3F25F7CA04200AD84B2C31662DD5DCF260E&guid=4973364976&uin=0&fromtag=66"
+        "playurl": "http://dl.stream.qqmusic.qq.com/C400000hLIXW3Km60I.m4a?vkey=658388F7E1AF77654742525EC43BA544D779CA09C56A24E52C4EBA6BF4D05C22F3CCAB0F9FF5E91C003842F4C5CFB4FF2005B57B21A0A35D&guid=3684528888&uin=0&fromtag=66"
     },
     {
         "id": "qq:201697348",
@@ -411,6 +411,76 @@
         "status": "已完成",
         "_index": 24,
         "playurl": "http://win.web.ri01.sycdn.kuwo.cn/71b6dbd2c73964ad4adf6df2afbf196e/5960b984/resource/n3/83/35/156496258.mp3",
+        "complete": 1
+    },
+    {
+        "id": "xiami:1795686936",
+        "songname": "走江南",
+        "singername": "亦心",
+        "albumname": "走江南",
+        "from": "Xiami",
+        "params": {
+            "song_id": 1795686936,
+            "album_logo": "http://pic.xiami.net/images/album/img85/168485/1684851490168485_1.jpg",
+            "artist_logo": "http://pic.xiami.net/images/default/avatar200_1.png",
+            "listen_file": "http://om5.alicdn.com/169/7169/2102719054/1795686936_1490168592877.mp3?auth_key=5137838639e1d102a2bba6546d131378-1500087600-0-null",
+            "lyric": "http://img.xiami.net/lyric/36/1795686936_1498830392_4495.trc"
+        },
+        "progress": "100.00",
+        "status": "已完成",
+        "_index": 25,
+        "playurl": "http://om5.alicdn.com/169/7169/2102719054/1795686936_1490168592877.mp3?auth_key=5137838639e1d102a2bba6546d131378-1500087600-0-null",
+        "complete": 1
+    },
+    {
+        "id": "qq:107192078",
+        "songname": "告白气球",
+        "singername": "周杰伦",
+        "albumname": "周杰伦的床边故事",
+        "from": "QQ",
+        "params": {
+            "mid": "003OUlho2HcRHC",
+            "albummid": "003RMaRI1iFoYd",
+            "strMediaMid": "003OUlho2HcRHC"
+        },
+        "progress": "100.00",
+        "status": "已完成",
+        "_index": 26,
+        "playurl": "http://dl.stream.qqmusic.qq.com/C400003OUlho2HcRHC.m4a?vkey=21A0A2EF72F51B6D16981BC47F1DCFB46E23B0F967521DD611664C9C8982BC8296B0AC19AA5A38518604B150C15E206B3D51C9DB5E712867&guid=3898011835&uin=0&fromtag=66",
+        "complete": 1
+    },
+    {
+        "id": "qq:105030812",
+        "songname": "Faded",
+        "singername": "Alan Walker,Iselin Solheim",
+        "albumname": "Faded",
+        "from": "QQ",
+        "params": {
+            "mid": "002NkERn2LNVI4",
+            "albummid": "002Nt51E0q8Zoo",
+            "strMediaMid": "000jF0b70x9gDf"
+        },
+        "progress": "100.00",
+        "status": "已完成",
+        "_index": 27,
+        "playurl": "http://dl.stream.qqmusic.qq.com/C400002NkERn2LNVI4.m4a?vkey=7952CFFE494F58C7127762255D27A1F1FAACEBCB5B0B516E6F1A31A4C615A7AC7AB50D29092DB72F2A9D8DE0737362A4877F522042A0D5AF&guid=7500688052&uin=0&fromtag=66",
+        "complete": 1
+    },
+    {
+        "id": "qq:108963136",
+        "songname": "成都",
+        "singername": "赵雷",
+        "albumname": "无法长大",
+        "from": "QQ",
+        "params": {
+            "mid": "001bhwUC1gE6ep",
+            "albummid": "000jE4g74VS43p",
+            "strMediaMid": "000FR5GV0lwW18"
+        },
+        "progress": "100.00",
+        "status": "已完成",
+        "_index": 28,
+        "playurl": "http://dl.stream.qqmusic.qq.com/C400001bhwUC1gE6ep.m4a?vkey=19F3883A9E0514288A3D07406061EADA6C90CD1AF862EC6DCE0F3693F265B787E9C949180364D1740F8CF9AB97B735EF8B64751844F5485B&guid=2299428607&uin=0&fromtag=66",
         "complete": 1
     }
 ]

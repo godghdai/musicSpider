@@ -100,7 +100,8 @@ module.exports = {
             }
         });
         // return songs.data.data.song.list[0];
-        return Tools.ColumnMap(songs.data.data.song.list || [], search_map);
+       if (songs.success)  return Tools.ColumnMap(songs.data.data.song.list || [], search_map);
+       return [];
     },
     GetPlayUrl: async function(song) {
         var _guid = getGuid();

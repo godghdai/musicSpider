@@ -49,7 +49,8 @@ module.exports = {
             }))
         });
         //return result.data.result.songs[0];
-        return Tools.ColumnMap(result.data.result.songs || [], search_map);
+        if (result.success) return Tools.ColumnMap(result.data.result.songs || [], search_map);
+        return [];
     },
     GetPlayUrl: async function(song) {
         let result = await Tools.Post({
@@ -62,7 +63,7 @@ module.exports = {
                 "csrf_token": ""
             }))
         });
-        return result.data.data[0].url||"";
+        return result.data.data[0].url || "";
     },
     GetImageUrl: async function(song) {
         return song["params"]["img"];
