@@ -217,6 +217,8 @@ Ext.onReady(function() {
         listeners: {
             itemdblclick: function(view, record, item, index, e, eOpts) {
                 //console.dir(record.data);
+
+                /*
                 Ext.Ajax.request({
                     url: '/getPlayUrl',
                     method: 'POST',
@@ -242,7 +244,11 @@ Ext.onReady(function() {
                     failure: function(response, options) {
 
                     }
-                });
+                });*/
+
+                Myplayer.addSongs([record.data]);
+
+
 
             }
         },
@@ -292,6 +298,23 @@ Ext.onReady(function() {
                         }
                     });
 
+
+                }
+            }, {
+                text: '增加到播放列表',
+                handler: function() {
+
+                    if (grid.getSelectionModel().getSelection().length == 0) {
+                        Ext.Msg.alert('提示', '未选择!!');
+                        return;
+                    }
+
+                    var _datas = [];
+                    Ext.each(grid.getSelectionModel().getSelection(), function(item, index) {
+                        _datas.push(item.data);
+                    });
+
+                    Myplayer.addSongs(_datas);
 
                 }
             }, {

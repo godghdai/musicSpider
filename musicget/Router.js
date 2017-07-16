@@ -126,6 +126,14 @@ router.post('/getPlayUrl', async function(ctx) {
 });
 
 
+router.get('/getPlayUrl', async function(ctx) {
+    var param = ctx.request.query["data"];
+    let data = JSON.parse(unescape(param));
+	let url = await musicLibs[data.from].GetPlayUrl(data);
+    ctx.body = url;
+});
+
+
 router.get('/getBaiduPlayStream', async function(ctx) {
     var param = ctx.request.query;
     ctx.respond = false;

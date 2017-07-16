@@ -1,4 +1,4 @@
-console.log("\n %c APlayer 1.6.1 %c http://aplayer.js.org \n\n","color: #fadfa3; background: #030307; padding:5px 0;","background: #fadfa3; padding:5px 0;");
+//console.log("\n %c APlayer 1.6.0 %c http://aplayer.js.org \n\n", "color: #fadfa3; background: #030307; padding:5px 0;", "background: #fadfa3; padding:5px 0;");
 
 require('./APlayer.scss');
 
@@ -81,7 +81,7 @@ class APlayer {
 
         // save lrc
         this.element = this.option.element;
-        if (this.option.showlrc === 2 || this.option.showlrc === true)  {
+        if (this.option.showlrc === 2 || this.option.showlrc === true) {
             this.savelrc = [];
             for (let i = 0; i < this.element.getElementsByClassName('aplayer-lrc-content').length; i++) {
                 this.savelrc.push(this.element.getElementsByClassName('aplayer-lrc-content')[i].innerHTML);
@@ -158,9 +158,9 @@ class APlayer {
         let eleHTML = `
             <div class="aplayer-pic" ${(this.music.pic ? (`style="background-image: url('${this.music.pic}');"`) : ``)}>
                 <div class="aplayer-button aplayer-play">
-                    <button type="button" class="aplayer-icon aplayer-icon-play">
-                        ${this.getSVG('play')}
-                    </button>
+                    <button type="button" class="aplayer-icon aplayer-icon-play">`
+            + this.getSVG('play')
+            + `     </button>
                 </div>
             </div>
             <div class="aplayer-info">
@@ -185,36 +185,36 @@ class APlayer {
                             - <span class="aplayer-ptime">00:00</span> / <span class="aplayer-dtime">00:00</span>
                         </span>
                         <div class="aplayer-volume-wrap">
-                            <button type="button" class="aplayer-icon aplayer-icon-volume-down" ${this.isMobile ? 'style="display: none;"' : ''}>
-                               ${this.getSVG('volume-down')}
-                            </button>
+                            <button type="button" class="aplayer-icon aplayer-icon-volume-down" ${this.isMobile ? 'style="display: none;"' : ''}>`
+            + this.getSVG('volume-down')
+            + `             </button>
                             <div class="aplayer-volume-bar-wrap">
                                 <div class="aplayer-volume-bar">
                                     <div class="aplayer-volume" style="height: 80%; background: ${this.option.theme};"></div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="aplayer-icon aplayer-icon-mode">
-                            ${this.getSVG(this.mode)}
-                        </button>
-                        <button type="button" class="aplayer-icon aplayer-icon-menu">
-                            ${this.getSVG('menu')}
-                        </button>
+                        <button type="button" class="aplayer-icon aplayer-icon-mode">`
+            + this.getSVG(this.mode)
+            + `         </button>
+                        <button type="button" class="aplayer-icon aplayer-icon-menu">`
+            + this.getSVG('menu')
+            + `         </button>
                     </div>
                 </div>
             </div>
             <div class="aplayer-list" ${this.option.listmaxheight ? `style="max-height: ${this.option.listmaxheight}` : ``}">
                 <ol>`;
-            for (let i = 0; i < this.option.music.length; i++) {
-                eleHTML += `
+        for (let i = 0; i < this.option.music.length; i++) {
+            eleHTML += `
                     <li>
                         <span class="aplayer-list-cur" style="background: ${this.option.theme};"></span>
                         <span class="aplayer-list-index">${(i + 1)}</span>
                         <span class="aplayer-list-title">${this.option.music[i].title}</span>
                         <span class="aplayer-list-author">${this.option.music[i].author}</span>
                     </li>`
-            }
-            eleHTML += `
+        }
+        eleHTML += `
                 </ol>
             </div>`
         this.element.innerHTML = eleHTML;
@@ -436,13 +436,12 @@ class APlayer {
 
         instances.push(this);
     }
-
     /**
-     * Set music
-     */
-    setMusic(index) {
+    * Set music
+    */
+    _setMusic(index) {
         // get this.music
-        if (typeof(index) !== 'undefined') {
+        if (typeof (index) !== 'undefined') {
             this.playIndex = index;
         }
         const indexMusic = this.playIndex;
@@ -460,7 +459,7 @@ class APlayer {
         this.element.getElementsByClassName('aplayer-list')[0].getElementsByTagName('li')[indexMusic].classList.add('aplayer-list-light');
 
         // set the previous audio object
-        if (!this.isMobile && this.audio) {
+        if (this.audio) {
             this.pause();
             this.audio.currentTime = 0;
         }
@@ -468,16 +467,7 @@ class APlayer {
         this.element.getElementsByClassName('aplayer-list')[0].scrollTop = indexMusic * 33;
 
         // get this audio object
-        if (this.isMobile && this.audio) {
-            this.audio.src = this.music.url;
-            this.play();
-        }
-        else if (!this.isMobile && this.audios[indexMusic]) {
-            this.audio = this.audios[indexMusic];
-            this.audio.volume = parseInt(this.element.getElementsByClassName('aplayer-volume')[0].style.height) / 100;
-            this.audio.currentTime = 0;
-        }
-        else {
+        if (!this.audios[indexMusic]) {
             this.audio = document.createElement("audio");
             this.audio.src = this.music.url;
             this.audio.preload = this.option.preload ? this.option.preload : 'auto';
@@ -490,7 +480,7 @@ class APlayer {
                     setTimeout(() => {
                         this.button.innerHTML = `
                                     <button type="button" class="aplayer-icon aplayer-icon-pause">`
-                            +           this.getSVG('pause')
+                            + this.getSVG('pause')
                             + `     </button>`;
                     }, 100);
 
@@ -526,7 +516,7 @@ class APlayer {
                     setTimeout(() => {
                         this.button.innerHTML = `
                                     <button type="button" class="aplayer-icon aplayer-icon-play">`
-                            +           this.getSVG('play')
+                            + this.getSVG('play')
                             + `     </button>`;
                     }, 100);
                     clearInterval(this.playedTime);
@@ -562,6 +552,11 @@ class APlayer {
             this.ended = false;
             this.audio.addEventListener('ended', () => {
                 if (this.multiple) {
+                    if (this.isMobile) {
+                        this.ended = true;
+                        this.pause();
+                        return;
+                    }
                     if (this.audio.currentTime !== 0) {
                         if (this.mode === 'random') {
                             this.setMusic(this.nextRandomNum());
@@ -605,6 +600,11 @@ class APlayer {
             this.audio.loop = !(this.multiple || this.mode === 'order');
 
             this.audios[indexMusic] = this.audio;
+        }
+        else {
+            this.audio = this.audios[indexMusic];
+            this.audio.volume = parseInt(this.element.getElementsByClassName('aplayer-volume')[0].style.height) / 100;
+            this.audio.currentTime = 0;
         }
 
         /**
@@ -651,7 +651,7 @@ class APlayer {
                 if (this.option.showlrc === 1) {
                     lrcs = this.option.music[index].lrc;
                 }
-                else if (this.option.showlrc === 2 || this.option.showlrc === true)  {
+                else if (this.option.showlrc === 2 || this.option.showlrc === true) {
                     lrcs = this.savelrc[index];
                 }
                 else if (this.option.showlrc === 3) {
@@ -724,6 +724,10 @@ class APlayer {
             this.play();
         }
         this.option.autoplay = true;  // autoplay next music
+
+        if (this.isMobile) {
+            this.pause();
+        }
     }
 
     /**
@@ -809,7 +813,7 @@ class APlayer {
             return shuffled;
         }
         if (this.multiple) {
-            this.randomOrder = shuffle([...Array(this.option.music.length)].map(function(item, i) {
+            this.randomOrder = shuffle([...Array(this.option.music.length)].map(function (item, i) {
                 return i;
             }));
         }
@@ -877,9 +881,74 @@ class APlayer {
         }
 
         list.style.height = 'auto';
-        list.style.height = list.offsetHeight + 'px';
-
+        //list.style.height = list.offsetHeight + 'px';
+        list.style.height = '100px';
         this.getRandomOrder();
+    }
+    removeMusic(index) {
+
+        this.option.music.splice(index, 1);
+        var olEle = this.element.getElementsByClassName('aplayer-list')[0].getElementsByTagName('ol')[0];
+        olEle.removeChild(olEle.children[index]);
+        this.audios.splice(index, 1);
+        for (let i = 0; i < olEle.children.length; i++) {
+            olEle.children[i].getElementsByClassName('aplayer-list-index')[0].innerHTML = i + 1;
+        }
+        olEle.parentNode.style.height = 'auto';
+        if (this.playIndex == index) {
+            this.pause();
+            if (this.option.music.length > 0) {
+                this.setMusic(index);
+                this.play();
+            }
+        }
+    }
+
+    addSongs(songs) {
+        let newMusic = songs.map(song => {
+            return {
+                'title': song.songname + "--" + song.albumname,
+                'author': song.singername,
+                'url': "url",
+                'lrc': "/downloadLrcUrl?data=" + escape(JSON.stringify(song)),
+                'pic': "/getImgUrl?data=" + escape(JSON.stringify(song)),
+                "song": song
+            }
+        });
+        this.addMusic(newMusic);
+    }
+
+    setMusic(index) {
+        if (typeof (index) !== 'undefined') {
+            this.playIndex = index;
+        }
+        const indexMusic = this.playIndex;
+        this.music = this.option.music[indexMusic];
+        //动态获取播放地址
+        if (this.music.song) {
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 && xhr.status < 300 || xhr.status === 304) {
+                        //lrcs = xhr.responseText;
+                        //console.dir(xhr.responseText);
+                        let url = xhr.responseText;
+                        if (this.music.song.from == "Baidu") {
+                            url = "/getBaiduPlayStream?url=" + url;
+                        }
+                        this.music.url = url;
+                        this._setMusic(index);
+                    }
+                    else {
+
+                    }
+
+                }
+            };
+            xhr.open('get', "/getPlayUrl?data=" + escape(JSON.stringify(this.music.song)));
+            xhr.send(null);
+            return;
+        } else this._setMusic(index);
     }
 }
 

@@ -45,8 +45,7 @@ module.exports = {
             }
             return Tools.ColumnMap(result || [], search_map);
         });
-        return [];
-
+        return result;
     },
     GetInfos: async function (song) {
         //xml
